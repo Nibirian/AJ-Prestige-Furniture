@@ -1,0 +1,27 @@
+@use "./colors" as *;
+
+@mixin respond-large {
+	@media (min-width: 992px) {
+		.aboutus {
+			&__contentbox {
+				padding-bottom: 7em;
+			}
+			&__textbox {
+				width: 50%;
+				padding-left: 2em;
+			}
+			&__textbox h2 {
+				padding: 1em;
+				font-size: 3rem;
+			}
+			&__image-box {
+				display: block;
+				margin-top: 3em;
+				width: 50%;
+			}
+			&__image-mobile {
+				display: none;
+			}
+		}
+	}
+}

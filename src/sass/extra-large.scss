@@ -1,0 +1,366 @@
+@use "./colors" as *;
+
+@mixin respond-extra-large {
+	@media (min-width: 1200px) {
+		html {
+			scroll-padding-top: 40px;
+		}
+		.nav-mobile {
+			display: none;
+		}
+		.nav-link {
+			height: 3em;
+			width: 6em;
+			&:hover {
+				color: $black;
+				background-color: $gold;
+				box-shadow: 0px 0px 25px $black;
+			}
+		}
+		.nav {
+			&-desktop {
+				display: grid;
+				grid-template-columns: repeat(9, 1fr);
+				grid-template-rows: repeat(8, 1fr);
+				padding: 2em;
+				height: 25em;
+				font-size: 3rem;
+			}
+			&-offer {
+				grid-column: 3/4;
+				grid-row: 4/5;
+				visibility: hidden;
+				animation: showUp 1s 1.7s forwards;
+			}
+			&-aboutus {
+				grid-column: 4/5;
+				grid-row: 2/3;
+				visibility: hidden;
+				animation: showUp 1s 1.9s forwards;
+			}
+			&-news {
+				grid-column: 6/7;
+				grid-row: 2/3;
+				visibility: hidden;
+				animation: showUp 1s 2.1s forwards;
+			}
+			&-findme {
+				grid-column: 7/8;
+				grid-row: 4/5;
+				visibility: hidden;
+				animation: showUp 1s 2.3s forwards;
+			}
+		}
+		//=======================
+
+		.top-bar {
+			height: 2em;
+		}
+		.top-bar2 {
+			display: none;
+			height: 2em;
+		}
+
+		//=======================
+
+		.goToTopBtn {
+			font-size: 5rem;
+		}
+
+		//=======================
+		.gallery {
+			display: flex;
+			margin: 1em;
+			width: 100vh;
+		}
+		//=======================
+		.menu {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1000;
+			background-color: $black-op;
+			transition: transform 0.3s;
+
+			transform: translateY(-100%);
+		}
+		.menu2 {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1000;
+			background-color: $black-op;
+		}
+		.menu_appear {
+			transform: translateY(0);
+		}
+		.nav-link2 {
+			letter-spacing: 1px;
+			transition: color 0.3s;
+			&:hover {
+				color: $black;
+			}
+		}
+		.new-nav-secondary {
+			display: block;
+		}
+
+		.new-nav {
+			display: block;
+			text-align: center;
+			&-title {
+				display: flex;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translate(0, -50%);
+				padding: 1em;
+				text-transform: uppercase;
+				color: $light_gold;
+				font-size: 2.5rem;
+			}
+		}
+		ul {
+			display: flex;
+			justify-content: flex-end;
+			padding: 0 1em;
+			list-style: none;
+			font-size: 3rem;
+		}
+
+		.hide {
+			display: none;
+		}
+		.menu-item-main {
+			margin: 0.5em;
+			text-align: center;
+			box-shadow: 1px 1px 2px $white, inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+			background-color: $gray;
+			&:hover {
+				background-color: $gold;
+				box-shadow: 0 0 15px $gray;
+			}
+		}
+		.menu-item {
+			display: inline-block;
+			position: relative;
+			text-transform: uppercase;
+			font-size: 2rem;
+			font-weight: 500;
+			letter-spacing: 1px;
+			min-width: 193px;
+			color: $gold;
+			transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+			cursor: pointer;
+		}
+		.menu-item p {
+			padding: 0.6em 1.8em;
+			color: $light_gold;
+			&:hover {
+				color: black;
+			}
+		}
+
+		.menu-item:hover > ul {
+			display: block;
+			position: absolute;
+		}
+
+		.dropdown {
+			padding: 0;
+			display: none;
+			z-index: 10000;
+		}
+
+		ul ul ul {
+			left: 100%;
+			top: 0;
+		}
+
+		.dropdown li {
+			position: relative;
+			height: 2.8em;
+			display: none;
+			opacity: 0;
+			background-color: $gray;
+			transition: background-color 0.2s;
+			font-size: 1.8rem;
+			padding: 1em;
+			margin: 0.6em 0;
+			border-radius: 4px;
+			box-shadow: 0 0 15px $black;
+			border-right: 1px solid $white;
+			border-bottom: 1px solid $white;
+			&:hover {
+				background-color: $gold2;
+			}
+		}
+
+		.dropdown li a p {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: $white;
+		}
+		.menu-item:hover .dropdown li {
+			display: block;
+			animation: menu 0.3s forwards;
+		}
+		.menu-item:hover .dropdown li:nth-child(2) {
+			animation-delay: 0.1s;
+		}
+		.menu-item:hover .dropdown li:nth-child(3) {
+			animation-delay: 0.2s;
+		}
+		.menu-item:hover .dropdown li:nth-child(4) {
+			animation-delay: 0.3s;
+		}
+		.menu-item:hover .dropdown li:nth-child(5) {
+			animation-delay: 0.4s;
+		}
+		.menu-item:hover .dropdown li:nth-child(6) {
+			animation-delay: 0.5s;
+		}
+
+		//========================
+		.logo {
+			top: 50%;
+		}
+		.hamburger {
+			display: none;
+		}
+		.company-name {
+			font-size: 2.2rem;
+		}
+		.icons {
+			display: flex;
+		}
+		.icons i {
+			display: flex;
+			padding: 0.2em 0.5em;
+			margin: 0 0.2em;
+			font-size: 2rem;
+			transition: color 0.3s;
+			&:hover {
+				color: $light_gold;
+			}
+		}
+		.go-down-btn {
+			left: 49.7%;
+			animation: showUp 1s 2.5s forwards;
+		}
+		.offer {
+			padding-bottom: 10em;
+
+			h2 {
+				font-size: 4.5rem;
+				padding: 2em;
+			}
+
+			&__box {
+				width: 30em;
+				height: 30em;
+				box-shadow: 3px 3px 15px rgba(0, 0, 0, 1);
+				&-shadow {
+					
+					background-color: rgba(0, 0, 0, 0.4);
+					transition: background-color 0.3s;
+					border-radius: 4px;
+					&:hover {
+						background-color: rgba(0, 0, 0, 0.2);
+					}
+				}
+				&-text {
+					font-size: 3rem;
+				}
+			}
+		}
+		
+		.findme {
+			&__element {
+				height: 3em;
+			}
+			&__form-box {
+				display: flex;
+				flex-direction: row;
+			}
+			
+			&__contact-box {
+				padding: 3em 1em;
+				& p {
+					font-size: 2.2rem;
+				}
+			}
+			&__title {
+				font-size: 3.5rem;
+				&-mobile {
+					display: none;
+				}
+			}
+		}
+		.contact__form {
+			margin: 6.5em 1em 2em;
+			width: 50%;
+			padding: 2em;
+			&-btnbox {
+				justify-content: flex-end;
+			}
+			&-btn {
+				padding: 1em 2em;
+			}
+		}
+	
+		textarea {
+			min-height: 12em;
+		}
+		.category {
+			padding: 15em 0 10em;
+			&__title {
+				font-size: 5rem;
+			}
+			&__text {
+				margin: 1.5em 0;
+				font-size: 2.3rem;
+			}
+			&__boxes {
+				margin: 5em 12em;
+			}
+			&__categorybox {
+				margin: 1em;
+			}
+		}
+		.footer {
+			&__info {
+				flex-direction: row;
+				&-title {
+					padding-left: 1.4em;
+					font-size: 2.3rem;
+				}
+				&-boxes {
+					width: 330px;
+				}
+				&-box {
+					padding: 0.5em;
+					font-size: 1.8rem;
+					& i {
+						padding-right: 0.5em;
+					}
+				}
+			}
+			&__cr {
+				font-size: 2rem;
+			}
+			&__implementation {
+				font-size: 1.8rem;
+			}
+		}
+	}
+}
